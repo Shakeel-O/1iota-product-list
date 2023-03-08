@@ -1,6 +1,6 @@
 # 1iotaProductList
 
-To view a Live Demo, visit `https://shakeel-o.github.io/1iota-product-list/`
+To view a Live Demo, visit `[https://shakeel-o.github.io/1iota-product-list](https://shakeel-o.github.io/1iota-product-list/)/`
 
 ## Development server
 

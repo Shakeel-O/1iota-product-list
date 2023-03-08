@@ -11,7 +11,16 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  getProductList(): Observable<Product[]>{
+  getProductList(): Observable<Product[]> {
     return this.http.get<{ data: Product[], result: string }>(this.apiUrl).pipe(map(r => r.data));
+  }
+
+  getProduct(productId: string): Observable<Product> {
+    return this.getProductList().pipe(map(products => {
+      const product = products.find(product => product.id === productId);
+      return product ? product : products[0];
+    }
+    ));
+
   }
 }

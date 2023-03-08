@@ -32,8 +32,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Deploy to Docs Folder
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./dist/1iota-product-list
+      - name: Move built files to docs folder
+        run: mv dist/1iota-product-list/* docs/
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "shakeel-o@live.com"
+          git config --global user.name "Shakeel O'Garra - GHActions"
+          git add -A
+          git commit -m "Deploy to GitHub Pages"
+          git push

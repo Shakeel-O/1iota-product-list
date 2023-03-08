@@ -1,0 +1,19 @@
+.card {
+  border: 1px solid gray;
+  padding: 10px;
+  max-width: 19em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-body {
+  max-width: 19em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-img {
+    max-width: 16em;
+    max-height: 16em;
+    object-fit: contain;
+  }

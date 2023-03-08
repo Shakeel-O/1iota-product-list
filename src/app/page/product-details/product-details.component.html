@@ -1,0 +1,18 @@
+<div *ngIf="product" class="product-details-container">
+
+    <img class="product-image" [src]="product.mainImage" alt="{{ product.name }}" />
+    <div class="product-details">
+    <h1>{{ product.name }}</h1>
+    <p>{{ product.description }}</p>
+    <p>Colour: {{ product.colour }}</p>
+    <div class="size-dropdown">
+      <label for="size-select">Size:</label>
+      <select id="size-select" [(ngModel)]="selectedSize">
+        <option *ngFor="let size of product.sizes" [value]="size">{{ size }}</option>
+      </select>
+    </div>
+    <p *ngIf="product.stockStatus === 'IN STOCK'" class="in-stock">In stock</p>
+    <p *ngIf="product.stockStatus !== 'IN STOCK'" class="in-stock">Out of stock</p>
+    <p>Price: {{ product.price.amount + product.price.currency }}</p>
+    </div>
+  </div>

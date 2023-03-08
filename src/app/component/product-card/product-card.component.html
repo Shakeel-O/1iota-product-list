@@ -1,0 +1,10 @@
+<div class="card">
+    <img  [routerLink]="['/products', product.id]" class="card-img" [src]="product.mainImage" [alt]="product.name">
+    <div class="card-body">
+      <a [routerLink]="['/products', product.id]">
+        <h5 class="card-title" >{{ product.name }}</h5>
+      </a>
+      <p class="card-price">{{ product.price.amount }}{{ product.price.currency }}</p>
+      <button class="btn btn-primary">Add to cart</button>
+    </div>
+  </div>

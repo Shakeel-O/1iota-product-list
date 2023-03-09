@@ -38,7 +38,7 @@ jobs:
       - name: Fetch remote changes
         run: |
           git fetch
-          git merge origin/gh-pages --ff-only
+          git merge --allow-unrelated-histories origin/gh-pages --ff-only
       - name: Install dependencies
         run: npm ci
       - name: Build app

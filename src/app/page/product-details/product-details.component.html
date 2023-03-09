@@ -16,3 +16,7 @@
     <p>Price: {{ product.price.amount + product.price.currency }}</p>
     </div>
   </div>
+  <div class="recently-viewed" *ngIf="recentProducts">
+    <h3>Recently viewed:</h3>
+    <app-product-list [products]="recentProducts"></app-product-list>
+  </div>

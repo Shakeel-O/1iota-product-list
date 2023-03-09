@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { filter, map, Observable, tap } from 'rxjs';
-import { Product } from '../shared/interfaces/product';
+import { Product } from '../../shared/interfaces/product';
 import { Router } from '@angular/router';
 
 @Injectable({

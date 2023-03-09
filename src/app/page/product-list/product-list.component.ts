@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../shared/interfaces/product';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent  implements OnInit {
+export class ProductListComponent implements OnInit {
   title = '1iota-product-list';
-  products!: Product[];
+  @Input() products?: Product[];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
-    this.getProductList();
+    if (!this.products) {
+      this.getProductList();
+    }
   }
 
   getProductList() {
-    this.productService.getProductList().subscribe(products => {
+    this.productService.getProductList().subscribe((products) => {
       this.products = products;
     });
   }

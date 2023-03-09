@@ -47,6 +47,6 @@ jobs:
           git config --global user.name "Shakeel O'Garra - GHActions"
           git add -A
           git commit -m "Deploy to GitHub Pages"
-          git push https://github.com/Shakeel-O/1iota-product-list.git HEAD:gh-pages --force
+          git push https://github.com/Shakeel-O/1iota-product-list.git HEAD:gh-pages --no-verify
         env:
           GITHUB_TOKEN: ${{ secrets.IOTA_ACCESS_TOKEN }}

@@ -39,10 +39,13 @@ jobs:
         run: npm ci
       - name: Build app
         run: npm run build -- --configuration production
-      - name: update repo
+      - name: Update repo
         run: git pull
+      - name: Change repo
+        run: git checkout gh-pages
       - name: Commit and push changes
         run: |
+          git pull
           git config --global user.email "shakeel-o@live.com"
           git config --global user.name "Shakeel O'Garra - GHActions"
           git add -A

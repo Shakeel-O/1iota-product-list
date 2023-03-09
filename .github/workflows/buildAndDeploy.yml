@@ -39,8 +39,8 @@ jobs:
         run: npm ci
       - name: Build app
         run: npm run build -- --configuration production
-      - name: Move built files to docs folder
-        run: git status
+      - name: update repo
+        run: git pull
       - name: Commit and push changes
         run: |
           git config --global user.email "shakeel-o@live.com"

@@ -22,7 +22,7 @@ jobs:
       run: npm run lint
 
     - name: Build
-      run: npm run build -- --configuration production
+      run: npm run build -- --configuration production --base-href './1iota-product-list/'
 
   deploy:
     needs: build-and-test

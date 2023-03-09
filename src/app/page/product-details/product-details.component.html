@@ -16,3 +16,11 @@
     <p>Price: {{ product.price.amount + product.price.currency }}</p>
     </div>
   </div>
+  <div class="recently-viewed">
+    <h3>Recently viewed:</h3>
+    <div class="row">
+      <div *ngFor="let product of recentProducts" class="col-lg-3 col-md-4 col-sm-6">
+        <app-product-card [product]="product"></app-product-card>
+      </div>
+    </div>
+  </div>

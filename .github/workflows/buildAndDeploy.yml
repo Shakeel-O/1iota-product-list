@@ -4,56 +4,31 @@ on:
   push:
 
 jobs:
-  build-and-test:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '19.x'
-
-    - name: Install Dependencies
-      run: npm install
-
-    - name: Linter
-      run: npm run lint
-
-    - name: Build
-      run: npm run build -- --configuration production --base-href './1iota-product-list/'
-
-  deploy:
-    needs: build-and-test
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v2
+      - name: Set up node.js
+        uses: actions/setup-node@v3.3.0
         with:
-          node-version: '19.x'
-      - name: Fetch remote changes
-        run: |
-          git fetch
-          git merge --allow-unrelated-histories origin/gh-pages --ff-only
+          node-version: '16'
+          cache: 'npm'
+
       - name: Install dependencies
         run: npm ci
-      - name: Build app
-        run: npm run build -- --configuration production
-      - name: Update repo
-        run: git pull
-      - name: Change repo
-        run: git checkout gh-pages
-      - name: Commit and push changes
-        run: |
-          git pull
-          git config --global user.email "shakeel-o@live.com"
-          git config --global user.name "Shakeel O'Garra - GHActions"
-          git add -A
-          git commit -m "Deploy to GitHub Pages"
-          git push https://github.com/Shakeel-O/1iota-product-list.git HEAD:gh-pages --no-verify
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build:prod
+
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: dist/weather-app
         env:
           GITHUB_TOKEN: ${{ secrets.IOTA_ACCESS_TOKEN }}

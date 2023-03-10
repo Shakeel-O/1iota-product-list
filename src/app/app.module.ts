@@ -12,6 +12,7 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
 import { HeaderComponent } from './component/header/header.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { CartComponent } from './page/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
     ProductListComponent,
     ProductDetailsComponent,
     NotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

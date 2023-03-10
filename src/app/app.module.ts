@@ -9,6 +9,7 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { ProductDetailsComponent } from './page/product-details/product-details.component';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './page/not-found/not-found.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NotFoundComponent } from './page/not-found/not-found.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

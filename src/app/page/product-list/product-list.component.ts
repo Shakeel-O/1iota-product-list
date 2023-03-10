@@ -10,6 +10,7 @@ import { Product } from '../../shared/interfaces/product';
 export class ProductListComponent implements OnInit {
   title = '1iota-product-list';
   @Input() products?: Product[];
+  @Input() cart?: boolean;
 
   constructor(private productService: ProductService) {}
 

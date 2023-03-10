@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart/cart.service';
 import { LocalStorageService } from 'src/app/services/localStorage/localStorage.service';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../shared/interfaces/product';
@@ -17,7 +18,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -34,5 +36,9 @@ export class ProductDetailsComponent implements OnInit {
       }
 
     });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addItemToCart(product);
   }
 }

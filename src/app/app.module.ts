@@ -9,7 +9,9 @@ import { ProductListComponent } from './page/product-list/product-list.component
 import { ProductDetailsComponent } from './page/product-details/product-details.component';
 import { FormsModule } from '@angular/forms';
 import { NotFoundComponent } from './page/not-found/not-found.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderComponent } from './component/header/header.component';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     ProductCardComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -29,4 +32,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   providers: [ProductService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faShoppingCart);
+  }
+ }

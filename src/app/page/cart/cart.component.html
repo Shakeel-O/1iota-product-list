@@ -1,0 +1,4 @@
+<div class="recently-viewed" *ngIf="cartProducts">
+  <h3>Your cart ({{cartItemCount}} items):</h3>
+  <app-product-list [products]="cartProducts" [cart]="true" ></app-product-list>
+</div>

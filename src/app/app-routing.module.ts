@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CartComponent } from './page/cart/cart.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
 import { ProductDetailsComponent } from './page/product-details/product-details.component';
 import { ProductListComponent } from './page/product-list/product-list.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: '', component: ProductListComponent },
   { path: 'not-found', component: NotFoundComponent },
+  { path: 'cart', component: CartComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
 
